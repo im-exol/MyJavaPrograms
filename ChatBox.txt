@@ -1,0 +1,181 @@
+
+From Navaneethan SME to Everyone 10:02 AM
+// Program to print Hello World! and Hello Java!
+
+public class Test 
+{
+    // States 
+    String name = "Hacker";  // its non-static 
+    // Methods
+    public static void main(String[] args){
+        
+       Test objref = new Test();
+       objref.display();
+       System.out.println(objref.name);
+    }
+
+    public void display(){  
+        // non-static  - this method is unique for every object you create
+        // Create an object and you need to access this method via objref variable.
+        System.out.println("Inside Display Method!");
+    }
+}
+From Navaneethan SME to Everyone 10:16 AM
+import java.io.PrintStream;
+
+// Program to print Hello World! and Hello Java!
+
+public class Test 
+{
+   // States
+
+   // Methods
+    public static void main(String[] args){
+        
+        System.out.println("Hello....");
+        
+        /*
+        System - class
+            1. in - static member   - System.in  - Keyboard
+            2. out - static member  - System.out - Output Stream - Monitor / Output Console
+            3. err - static member  - System.err - Error Stream - Monitor / Output Console
+        */
+
+        //println("Hello World!");  // non - static methods
+        //print("Hello"); // non - static methods
+    }
+
+}
+
+28-nov-21
+From Navaneethan SME to Everyone 10:29 AM
+import java.util.*;                         
+
+class VintageCar {
+
+    public void fly(){
+        System.out.println("Im flying...!");
+    }
+}
+
+class Car extends VintageCar {  // Super Class / Parent Class
+
+    public String patentID = "31k31321j3h1kj31l";
+
+    public void accelerate(){   // method
+        System.out.println("Accelerating.....the car to 40 kmph in 10 secs !");
+    }
+}
+
+public class BMWCar extends Car 
+{  
+    String patentID = "456j3n35353530";
+
+    public void getPatentID(){
+        System.out.println(super.patentID);
+    }
+    public static void main(String[] args){
+      
+        BMWCar bmw = new BMWCar();
+        
+    }
+}
+
+From Navaneethan SME to Everyone 10:49 AM
+import java.util.*;                         
+// Compile Time - Polymorphism
+
+public class Calculator
+{  
+    // Methods - Method Overloading 
+        // method name and return type - should always be same 
+        // You can increase / decrease the number of arguments
+        // You can change the order of arguments
+        // You can change the data type of arguments
+
+    public int add(int x, int y){
+        return x + y;
+    }
+
+    public int add(double x, double y){
+        return (int)(x + y);
+    }
+
+    public int add(int x, int y, int z){
+        return x + y + z;
+    }
+
+    public int add(double x, int y){  // 3.14  , 5 = 8.14 --- > 8
+        return (int)(x + y);
+    }
+
+    public int add(int x, double y){  // 3.14  , 5 = 8.14 --- > 8
+        return (int)(x + y);
+    }
+    public static void main(String[] args){
+        Calculator objref = new Calculator();
+        int sum = objref.add(2.13,2.34); // 4.47
+        System.out.println("Sum : "+ sum);
+    }
+}
+
+From Navaneethan SME to Everyone 11:17 AM
+// run time polymorphism - Method Overriding
+class Animal {
+
+    public void hunt(){
+        System.out.println("Animal's way of hunting...!");
+    }
+}
+
+public class Lion extends Animal {
+
+    public void hunt(){
+        System.out.println("Lion's Way of Hunting..!");
+    }
+
+    public static void main(String[] args){
+       
+        Animal objref = new Lion();
+
+        System.out.println(objref instanceof Animal);  
+        
+        // Runtime Polymorphism
+        objref.hunt(); // Accessing sub class method using super class container
+    }
+}
+
+
+From Navaneethan SME to Everyone 01:35 PM
+interface MyInterface {  // 100 % Abstraction
+    // States
+     int totalcents  = 20;  // public static final
+
+    // Inside your Class:
+    // final --- variable ------------ constant (fixed value)
+    // final ---- method  ------------ method cannot be overridden
+    // final ---- class -------------> cannot take part in inheritance
+    // abstract ---- variable ----> It is not possible
+    // abstract ---- method ------> abstract method - a method without any implementation.
+    // abstract ---- class -------> abstract class -----> cant instantiate the class 
+    
+    
+    // methods
+    public void constructHome(); // public abstract in nature
+    public void constructLawn();
+}
+
+class CivilEngineer implements MyInterface{
+
+    @Override
+    public void constructHome() {
+        System.out.println("Civil Eng 1's way of constructing a home!");
+        
+    }
+
+    @Override
+    public void constructLawn() {
+    
+        System.out.println("Civil Eng 1's way of constructing a lawn!");
+        
+    }
