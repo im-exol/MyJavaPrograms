@@ -1,3 +1,4 @@
+//prime number
 import java.util.*;
 import java.io.*;
 public class PrimeNumber
