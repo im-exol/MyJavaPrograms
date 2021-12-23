@@ -9,7 +9,7 @@ public class Pattern1Q1
         Scanner sc = new Scanner(System.in);
          int n = sc.nextInt();
          sc.close();
-         printPattern5(n); //for different patterns try different methods
+         printPattern6(n); //for different patterns try different methods
         
     }
         public static void printPattern(int n)
@@ -62,12 +62,26 @@ public class Pattern1Q1
             for(int i =1; i<=n ; i++)
               {
                   for(int k=n; k>i ; k--)
-                      System.out.print("  ");
-                    for(int j =1 ; j<=i ; j++)
+                      System.out.print("  ");     //HERE WE CAN HAVE DIFFERENT PATTERNS
+                    for(int j =1 ; j<=i ; j++)    // BY ARRANGING THE SPACES
                    {            
                                System.out.print(" *");
                     }
                 System.out.println();    
               }
+        }
+        public static void printPattern6(int n)
+        {
+          char last = 'E' , Alphabet = 'A';
+             for(int i = 1; i<= (last - 'A' + 1); ++i)
+             {
+                for (int j = 1; j<=i; ++j)
+              {
+                System.out.print(Alphabet + " ");
+              }
+              ++Alphabet;
+              System.out.println();
+             }
+                
         }
 }
